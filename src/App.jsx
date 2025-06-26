@@ -268,7 +268,8 @@ const Contact = () => {
                 form.current.reset();
               },
               (error) => {
-                setMessage("Failed to send message. Try again later.");
+                console.log("error", error);
+                // setMessage("Failed to send message. Try again later.");
               }
             );
         },
@@ -321,7 +322,7 @@ const Footer = () => (
     <div className="max-w-6xl mx-auto flex flex-wrap justify-between gap-6">
       <div>
         <h3 className="mb-2">Contact Info</h3>
-        <p>Email: info@urbancrest.com</p>
+        <p>Email: urbancrest.ngltd@gmail.com</p>
         <p>Phone number: +123 456 7890</p>
         <p>Address: 123 Real Estate Avenue, City</p>
       </div>
