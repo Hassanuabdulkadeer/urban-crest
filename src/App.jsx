@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   NavLink,
 } from "react-router-dom";
+import emailjs from "emailjs-com";
+
 import Logo from "./assets/images/logo.png";
 import Herobg from "./assets/images/hero-bg.jpg";
+import AboutImg from "./assets/images/about-c.png";
 
 const Header = () => (
   <header className="flex justify-between items-center px-8 py-4 bg-gray-100 border-b border-gray-300">
@@ -36,20 +39,67 @@ const Header = () => (
 );
 
 const Hero = () => (
-  <section
-    className="h-[70vh] bg-cover bg-center text-white flex items-center justify-center text-center relative"
-    style={{ backgroundImage: `url(${Herobg})` }}
-  >
-    <div className="absolute inset-0 bg-black opacity-50"></div>
-    <div className="relative z-10 max-w-2xl px-4">
-      <h2 className="text-4xl md:text-5xl mb-4">
-        Welcome to Urban Crest Realty
-      </h2>
-      <p className="text-lg">
-        Where smart living, design, and style are the priority
-      </p>
-    </div>
-  </section>
+  <div>
+    <section
+      className="h-[70vh] bg-cover bg-center text-white flex items-center justify-center text-center relative"
+      style={{ backgroundImage: `url(${Herobg})` }}
+    >
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="relative z-10 max-w-2xl px-4">
+        <h2 className="text-4xl md:text-5xl mb-4">
+          Welcome to Urban Crest Realty
+        </h2>
+        <p className="text-lg">
+          Where smart living, design, and style are the priority
+        </p>
+      </div>
+    </section>
+    {/* <!-- About Us Section --> */}
+    {/* <section class="about">
+      <h2>About Us</h2>
+      <div class="about-content">
+        <div class="about-image">
+          <img src={AboutImg} alt="About Urban Crest" />
+        </div>
+        <div class="about-text">
+          <p>
+            At Urban Crest Realty Limited, we are reimagining what it means to
+            live, work, and thrive in urban Nigeria. As a visionary real estate
+            development and investment company, our mission is to create
+            innovative, sustainable, and high-quality spaces that reflect the
+            evolving aspirations of modern Nigerians.
+          </p>
+          <p>
+            Founded on the belief that real estate should not just provide
+            shelter but enhance the quality of life, we are committed to
+            building smart communities that are both eco-conscious and
+            technologically integrated. From residential estates to commercial
+            hubs, every Urban Crest project is a fusion of cutting-edge design,
+            environmental mindfulness, and functional elegance.
+          </p>
+          <a href="/about" class="btn">
+            Learn More
+          </a>
+        </div>
+      </div>
+    </section> */}
+
+    {/* <!-- Projects Section --> */}
+    {/* <section class="projects">
+      <h2>Projects</h2>
+      <div class="project-showcase">
+        <div class="project-card">
+          <img src={Herobg} alt="House Type" />
+          <div class="project-overlay">
+            <h3>Coming Soon...</h3>
+          </div>
+        </div>
+      </div>
+      <a href="/projects" class="btn">
+        View Projects
+      </a>
+    </section> */}
+  </div>
 );
 
 const About = () => (
@@ -168,25 +218,103 @@ const Projects = () => (
   </section>
 );
 
-const Contact = () => (
-  <section className="px-8 py-16">
-    <h2 className="text-center text-4xl font-light mb-12">CONTACT US</h2>
-    <form className="max-w-lg mx-auto space-y-6" id="contactForm">
-      {["Name", "Email", "Phone no", "Message"].map((label, idx) => (
-        <input
-          key={idx}
-          type={label === "Message" ? "textarea" : "text"}
-          placeholder={label}
-          required
-          className="w-full p-3 rounded border border-gray-300"
-        />
-      ))}
-      <button className="bg-gray-700 text-white px-6 py-2 rounded-full block mx-auto">
-        Submit
-      </button>
-    </form>
-  </section>
-);
+// const Contact = () => (
+//   <section className="px-8 py-16">
+//     <h2 className="text-center text-4xl font-light mb-12">CONTACT US</h2>
+//     <form className="max-w-lg mx-auto space-y-6" id="contactForm">
+//       {["Name", "Email", "Phone no", "Message"].map((label, idx) => (
+//         <input
+//           key={idx}
+//           type={label === "Message" ? "textarea" : "text"}
+//           placeholder={label}
+//           required
+//           className="w-full p-3 rounded border border-gray-300"
+//         />
+//       ))}
+//       <button className="bg-gray-700 text-white px-6 py-2 rounded-full block mx-auto">
+//         Submit
+//       </button>
+//     </form>
+//   </section>
+// );
+const Contact = () => {
+  const form = useRef();
+  const [message, setMessage] = useState("");
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_cj2wgx6", // replace
+        "template_jbv97wl", // replace
+        form.current,
+        "KfjOFEYdluZ6wiAXw" // replace
+      )
+      .then(
+        (result) => {
+          setMessage("Message sent successfully!");
+          form.current.reset();
+          emailjs
+            .sendForm(
+              "service_cj2wgx6", // replace
+              "template_3b63hhi",
+              form.current,
+              "KfjOFEYdluZ6wiAXw" // replace
+            )
+            .then(
+              (result) => {
+                setMessage("Message sent successfully!");
+                form.current.reset();
+              },
+              (error) => {
+                setMessage("Failed to send message. Try again later.");
+              }
+            );
+        },
+        (error) => {
+          setMessage("Failed to send message. Try again later.");
+        }
+      );
+  };
+
+  return (
+    <section className="px-8 py-16">
+      <div className="max-w-2xl mx-auto mt-20">
+        <h2 className="text-center text-3xl font-light mb-6">Contact Us</h2>
+        <form ref={form} onSubmit={sendEmail} className="space-y-6">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+            className="w-full border px-4 py-2 rounded"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            className="w-full border px-4 py-2 rounded"
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            required
+            className="w-full border px-4 py-2 rounded h-32"
+          ></textarea>
+          <button
+            type="submit"
+            className="bg-gray-800 text-white px-6 py-2 rounded hover:bg-gray-700"
+          >
+            Send Message
+          </button>
+          {message && <p className="text-sm text-center mt-2">{message}</p>}
+        </form>
+      </div>
+    </section>
+  );
+};
 
 const Footer = () => (
   <footer className="bg-gray-700 text-white py-12 px-8">
