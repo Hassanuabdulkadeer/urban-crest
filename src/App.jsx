@@ -99,9 +99,9 @@ const Hero = () => (
         </div>
       </div>
       <div className=" bg-gray-600 w-fit p-3 min-w-[200px] justify-center items-center flex rounded-4xl hover:bg-gray-700">
-        <a href="/projects" className="text-white text-center">
+        <NavLink to="/projects" className="text-white text-center">
           View Projects
-        </a>
+        </NavLink>
       </div>
     </section>
   </div>
