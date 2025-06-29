@@ -85,20 +85,25 @@ const Hero = () => (
     </section> */}
 
     {/* <!-- Projects Section --> */}
-    {/* <section class="projects">
-      <h2>Projects</h2>
-      <div class="project-showcase">
-        <div class="project-card">
-          <img src={Herobg} alt="House Type" />
-          <div class="project-overlay">
-            <h3>Coming Soon...</h3>
+    <section className="flex flex-col my-10 gap-5 justify-center items-center">
+      <h2 className="text-center text-3xl">Projects</h2>
+      <div className="flex justify-center items-center">
+        <div className="relative w-1/3 rounded overflow-hidden">
+          <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
+          <img src={Herobg} alt="House Type" className="object-cover" />
+          <div className="flex absolute justify-center items-center inset-0 z-20">
+            <h3 className="text-center text-white font-semibold">
+              Coming Soon...
+            </h3>
           </div>
         </div>
       </div>
-      <a href="/projects" class="btn">
-        View Projects
-      </a>
-    </section> */}
+      <div className=" bg-gray-600 w-fit p-3 min-w-[200px] justify-center items-center flex rounded-4xl hover:bg-gray-700">
+        <a href="/projects" className="text-white text-center">
+          View Projects
+        </a>
+      </div>
+    </section>
   </div>
 );
 
