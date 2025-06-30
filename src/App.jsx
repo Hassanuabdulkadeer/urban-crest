@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -38,152 +38,166 @@ const Header = () => (
   </header>
 );
 
-const Hero = () => (
-  <div>
-    <section
-      className="h-[70vh] bg-cover bg-center text-white flex items-center justify-center text-center relative"
-      style={{ backgroundImage: `url(${Herobg})` }}
-    >
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-      <div className="relative z-10 max-w-2xl px-4">
-        <h2 className="text-4xl md:text-5xl mb-4">
-          Welcome to Urban Crest Realty
-        </h2>
-        <p className="text-lg">
-          Where smart living, design, and style are the priority
-        </p>
-      </div>
-    </section>
-    {/* <!-- About Us Section --> */}
-    {/* <section class="about">
-      <h2>About Us</h2>
-      <div class="about-content">
-        <div class="about-image">
-          <img src={AboutImg} alt="About Urban Crest" />
-        </div>
-        <div class="about-text">
-          <p>
-            At Urban Crest Realty Limited, we are reimagining what it means to
-            live, work, and thrive in urban Nigeria. As a visionary real estate
-            development and investment company, our mission is to create
-            innovative, sustainable, and high-quality spaces that reflect the
-            evolving aspirations of modern Nigerians.
-          </p>
-          <p>
-            Founded on the belief that real estate should not just provide
-            shelter but enhance the quality of life, we are committed to
-            building smart communities that are both eco-conscious and
-            technologically integrated. From residential estates to commercial
-            hubs, every Urban Crest project is a fusion of cutting-edge design,
-            environmental mindfulness, and functional elegance.
-          </p>
-          <a href="/about" class="btn">
-            Learn More
-          </a>
-        </div>
-      </div>
-    </section> */}
+const Hero = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-    {/* <!-- Projects Section --> */}
-    <section className="flex flex-col my-10 gap-5 justify-center items-center">
-      <h2 className="text-center text-3xl">Projects</h2>
-      <div className="flex justify-center items-center">
-        <div className="relative w-1/3 rounded overflow-hidden">
-          <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
-          <img src={Herobg} alt="House Type" className="object-cover" />
-          <div className="flex absolute justify-center items-center inset-0 z-20">
-            <h3 className="text-center text-white font-semibold">
-              Coming Soon...
-            </h3>
+  return (
+    <div>
+      <section
+        className="h-[70vh] bg-cover bg-center text-white flex items-center justify-center text-center relative"
+        style={{ backgroundImage: `url(${Herobg})` }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="relative z-10 max-w-2xl px-4">
+          <h2 className="text-4xl md:text-5xl mb-4">
+            Welcome to Urban Crest Realty
+          </h2>
+          <p className="text-lg">
+            Where smart living, design, and style are the priority
+          </p>
+        </div>
+      </section>
+      {/* <!-- About Us Section --> */}
+      <section className="flex flex-col my-10 gap-5 justify-center items-center">
+        <h2 className="text-center text-3xl">About Us</h2>
+        <div className="grid grid-cols-2 justify-center items-center">
+          <div className="p-20">
+            <img src={AboutImg} alt="About Urban Crest" />
+          </div>
+          <div classname="flex flex-col gap-10 p-10">
+            <p className="mb-4">
+              At Urban Crest Realty Limited, we are reimagining what it means to
+              live, work, and thrive in urban Nigeria. As a visionary real
+              estate development and investment company, our mission is to
+              create innovative, sustainable, and high-quality spaces that
+              reflect the evolving aspirations of modern Nigerians.
+            </p>
+            <p className="mb-4">
+              Founded on the belief that real estate should not just provide
+              shelter but enhance the quality of life, we are committed to
+              building smart communities that are both eco-conscious and
+              technologically integrated. From residential estates to commercial
+              hubs, every Urban Crest project is a fusion of cutting-edge
+              design, environmental mindfulness, and functional elegance.
+            </p>
+            <NavLink to="/about" className="text-white text-center">
+              <div className=" bg-gray-600 w-fit p-3 min-w-[200px] justify-center items-center flex rounded-4xl hover:bg-gray-700">
+                Learn More
+              </div>
+            </NavLink>
+          </div>
+        </div>
+      </section>
+
+      {/* <!-- Projects Section --> */}
+      <section className="flex flex-col my-10 gap-5 justify-center items-center">
+        <h2 className="text-center text-3xl">Projects</h2>
+        <div className="flex justify-center items-center">
+          <div className="relative w-1/3 rounded overflow-hidden">
+            <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
+            <img src={Herobg} alt="House Type" className="object-cover" />
+            <div className="flex absolute justify-center items-center inset-0 z-20">
+              <h3 className="text-center text-white font-semibold">
+                Coming Soon...
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div className=" bg-gray-600 w-fit p-3 min-w-[200px] justify-center items-center flex rounded-4xl hover:bg-gray-700">
+          <NavLink to="/projects" className="text-white text-center">
+            View Projects
+          </NavLink>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return (
+    <section className="px-8 py-16">
+      <h2 className="text-center text-4xl font-light mb-12">ABOUT US</h2>
+      <div className="max-w-5xl mx-auto">
+        <p className="mb-6 text-gray-600">
+          At Urban Crest Realty Limited, we are reimagining what it means to
+          live, work, and thrive in urban Nigeria. As a visionary real estate
+          development and investment company, our mission is to create
+          innovative, sustainable, and high-quality spaces that reflect the
+          evolving aspirations of modern Nigerians.
+        </p>
+        <p className="mb-6 text-gray-600">
+          Founded on the belief that real estate should not just provide shelter
+          but enhance the quality of life, we are committed to building smart
+          communities that are both eco-conscious and technologically
+          integrated. From residential estates to commercial hubs, every Urban
+          Crest project is a fusion of cutting-edge design, environmental
+          mindfulness, and functional elegance.
+        </p>
+        <p className="mb-6 text-gray-600">
+          We understand the urgency of Nigeria’s housing deficit, and we are
+          playing an active role in addressing it—one development at a time. But
+          beyond closing the gap, our ambition is to set a new benchmark for
+          real estate in Nigeria: one that champions sustainability,
+          inclusivity, and excellence.
+        </p>
+        <p className="mb-6 text-gray-600">
+          With a team of passionate professionals, forward-thinking architects,
+          and a deep understanding of local needs, Urban Crest Realty Limited is
+          not just building properties—we are shaping the future of urban
+          living..
+        </p>
+        <p className="mt-12 mb-6 text-gray-600">
+          <h3 className="text-xl font-semibold text-gray-700 mb-3">
+            Vision Statement
+          </h3>
+          To be the leading smart and modern home developer, delivering
+          intelligent, sustainable, and tech- driven living spaces that redefine
+          modern lifestyles. Through cutting-edge innovation, seamless
+          automation, and eco-friendly solutions, we aim to set new benchmarks
+          for smart living in Nigeria.
+        </p>
+        <p className="mt-12 mb-6 text-gray-600">
+          <h3 className="text-xl font-semibold text-gray-700 mb-3">
+            Mission Statement
+          </h3>
+          To redefine urban living by delivering innovative, energy-efficient,
+          and high-quality homes. We are committed to excellence, timely project
+          delivery, and creating long-term value for our clients and
+          stakeholders through sustainable practices and strategic partnerships.
+        </p>
+        <div className="mt-12">
+          <h2 className="text-center text-3xl font-light mb-8">VALUES</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {["Quality", "Innovation", "Integrity"].map((value, idx) => (
+              <div key={idx}>
+                <h3 className="text-xl font-semibold text-gray-700 mb-3">
+                  {value}
+                </h3>
+                <p className="text-gray-600 text-sm text-justify">
+                  {value === "Quality" &&
+                    "We are committed to excellence in everything we do—from materials and craftsmanship to customer service and aftercare. Our developments are built to last, combining beauty, durability, and superior functionality."}
+                  {value === "Innovation" &&
+                    `Innovation is at the heart of Urban Crest’s vision. By integrating smart home systems, renewable
+energy solutions, and modern architectural designs, the company will offer unique housing
+solutions that meet contemporary needs.`}
+                  {value === "Integrity" &&
+                    `Trust is the cornerstone of our business. We operate with
+              transparency, accountability, and ethical responsibility, ensuring
+              that our clients, partners, and communities can always rely on us.`}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      <div className=" bg-gray-600 w-fit p-3 min-w-[200px] justify-center items-center flex rounded-4xl hover:bg-gray-700">
-        <NavLink to="/projects" className="text-white text-center">
-          View Projects
-        </NavLink>
-      </div>
     </section>
-  </div>
-);
-
-const About = () => (
-  <section className="px-8 py-16">
-    <h2 className="text-center text-4xl font-light mb-12">ABOUT US</h2>
-    <div className="max-w-5xl mx-auto">
-      <p className="mb-6 text-gray-600">
-        At Urban Crest Realty Limited, we are reimagining what it means to live,
-        work, and thrive in urban Nigeria. As a visionary real estate
-        development and investment company, our mission is to create innovative,
-        sustainable, and high-quality spaces that reflect the evolving
-        aspirations of modern Nigerians.
-      </p>
-      <p className="mb-6 text-gray-600">
-        Founded on the belief that real estate should not just provide shelter
-        but enhance the quality of life, we are committed to building smart
-        communities that are both eco-conscious and technologically integrated.
-        From residential estates to commercial hubs, every Urban Crest project
-        is a fusion of cutting-edge design, environmental mindfulness, and
-        functional elegance.
-      </p>
-      <p className="mb-6 text-gray-600">
-        We understand the urgency of Nigeria’s housing deficit, and we are
-        playing an active role in addressing it—one development at a time. But
-        beyond closing the gap, our ambition is to set a new benchmark for real
-        estate in Nigeria: one that champions sustainability, inclusivity, and
-        excellence.
-      </p>
-      <p className="mb-6 text-gray-600">
-        With a team of passionate professionals, forward-thinking architects,
-        and a deep understanding of local needs, Urban Crest Realty Limited is
-        not just building properties—we are shaping the future of urban living..
-      </p>
-      <p className="mt-12 mb-6 text-gray-600">
-        <h3 className="text-xl font-semibold text-gray-700 mb-3">
-          Vision Statement
-        </h3>
-        To be the leading smart and modern home developer, delivering
-        intelligent, sustainable, and tech- driven living spaces that redefine
-        modern lifestyles. Through cutting-edge innovation, seamless automation,
-        and eco-friendly solutions, we aim to set new benchmarks for smart
-        living in Nigeria.
-      </p>
-      <p className="mt-12 mb-6 text-gray-600">
-        <h3 className="text-xl font-semibold text-gray-700 mb-3">
-          Mission Statement
-        </h3>
-        To redefine urban living by delivering innovative, energy-efficient, and
-        high-quality homes. We are committed to excellence, timely project
-        delivery, and creating long-term value for our clients and stakeholders
-        through sustainable practices and strategic partnerships.
-      </p>
-      <div className="mt-12">
-        <h2 className="text-center text-3xl font-light mb-8">VALUES</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {["Quality", "Innovation", "Integrity"].map((value, idx) => (
-            <div key={idx}>
-              <h3 className="text-xl font-semibold text-gray-700 mb-3">
-                {value}
-              </h3>
-              <p className="text-gray-600 text-sm text-justify">
-                {value === "Quality" &&
-                  "We are committed to excellence in everything we do—from materials and craftsmanship to customer service and aftercare. Our developments are built to last, combining beauty, durability, and superior functionality."}
-                {value === "Innovation" &&
-                  `Innovation is at the heart of Urban Crest’s vision. By integrating smart home systems, renewable
-energy solutions, and modern architectural designs, the company will offer unique housing
-solutions that meet contemporary needs.`}
-                {value === "Integrity" &&
-                  `Trust is the cornerstone of our business. We operate with
-              transparency, accountability, and ethical responsibility, ensuring
-              that our clients, partners, and communities can always rely on us.`}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-);
+  );
+};
 
 const Projects = () => (
   <section className="px-8 py-16 bg-white">
@@ -259,7 +273,7 @@ const Contact = () => {
       .then(
         (result) => {
           setMessage("Message sent successfully!");
-          form.current.reset();
+          console.log("form", form.current);
           emailjs
             .sendForm(
               "service_cj2wgx6", // replace
@@ -327,7 +341,9 @@ const Footer = () => (
     <div className="max-w-6xl mx-auto flex flex-wrap justify-between gap-6">
       <div>
         <h3 className="mb-2">Contact Info</h3>
-        <p>Email: urbancrest.ngltd@gmail.com</p>
+        <a href="mailto:urbancrest.ngltd@gmail.com">
+          Email: urbancrest.ngltd@gmail.com
+        </a>
         <p>Phone number: +123 456 7890</p>
         <p>Address: 123 Real Estate Avenue, City</p>
       </div>
