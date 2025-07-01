@@ -284,7 +284,7 @@ const Projects = () => (
         purpose, and long-term prosperity.
       </p>
     </div>
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-12">
       {[...Array(8)].map((_, i) => (
         <img
           key={i}
