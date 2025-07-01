@@ -23,12 +23,14 @@ const Header = () => {
 
   return (
     <header className="flex justify-between items-center px-2 sm:px-8 py-4 bg-gray-100 border-b border-gray-300 relative">
-      <div className="flex items-center">
-        <img src={Logo} alt="Urban Crest Logo" className="h-8 sm:h-10 mr-3" />
-        <h1 className="text-md sm:text-xl font-light text-gray-700">
-          URBAN CREST
-        </h1>
-      </div>
+      <NavLink to="/">
+        <div className="flex items-center">
+          <img src={Logo} alt="Urban Crest Logo" className="h-8 sm:h-10 mr-3" />
+          <h1 className="text-md sm:text-xl font-light text-gray-700">
+            URBAN CREST
+          </h1>
+        </div>
+      </NavLink>
 
       {/* Desktop Navigation */}
       <nav className="hidden sm:block">
