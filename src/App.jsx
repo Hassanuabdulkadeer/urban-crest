@@ -160,7 +160,7 @@ const Hero = () => {
         <div className="flex justify-center items-center">
           <div className="relative w-2/3 sm:w-1/3 rounded overflow-hidden">
             <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
-            <img src={comingsoon} alt="House Type" className="object-cover" />
+            <img src={project2} alt="House Type" className="object-cover" />
             <div className="flex absolute justify-center items-center inset-0 z-20">
               <h3 className="text-center text-white font-semibold">
                 Coming Soon...
