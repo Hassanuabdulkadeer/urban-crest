@@ -12,13 +12,15 @@ import Herobg from "./assets/images/hero-bg.jpg";
 import AboutImg from "./assets/images/about-c.png";
 
 const Header = () => (
-  <header className="flex justify-between items-center px-8 py-4 bg-gray-100 border-b border-gray-300">
+  <header className="flex justify-between items-center px-2 sm:px-8 py-4 bg-gray-100 border-b border-gray-300">
     <div className="flex items-center">
-      <img src={Logo} alt="Urban Crest Logo" className="h-10 mr-3" />
-      <h1 className="text-xl font-light text-gray-700">URBAN CREST</h1>
+      <img src={Logo} alt="Urban Crest Logo" className="h-8  sm:h-10 mr-3" />
+      <h1 className="text-md sm:text-xl font-light text-gray-700">
+        URBAN CREST
+      </h1>
     </div>
     <nav>
-      <ul className="flex space-x-6">
+      <ul className="flex space-x-3 sm:space-x-6">
         {["/", "/about", "/projects", "/contact"].map((path, idx) => (
           <li key={idx}>
             <NavLink
@@ -60,21 +62,21 @@ const Hero = () => {
         </div>
       </section>
       {/* <!-- About Us Section --> */}
-      <section className="flex flex-col my-10 gap-5 justify-center items-center">
+      <section className="flex flex-col my-10 gap-5 justify-center items-center p-10">
         <h2 className="text-center text-3xl">About Us</h2>
-        <div className="grid grid-cols-2 justify-center items-center">
-          <div className="p-20">
+        <div className="grid sm:grid-cols-2 justify-center items-center">
+          <div className="p-20 hidden sm:block">
             <img src={AboutImg} alt="About Urban Crest" />
           </div>
-          <div classname="flex flex-col gap-10 p-10">
-            <p className="mb-4">
+          <div classname="flex justify-center  flex-col gap-10 p-10">
+            <p className="mb-4 text-justify">
               At Urban Crest Realty Limited, we are reimagining what it means to
               live, work, and thrive in urban Nigeria. As a visionary real
               estate development and investment company, our mission is to
               create innovative, sustainable, and high-quality spaces that
               reflect the evolving aspirations of modern Nigerians.
             </p>
-            <p className="mb-4">
+            <p className="mb-4 text-justify">
               Founded on the belief that real estate should not just provide
               shelter but enhance the quality of life, we are committed to
               building smart communities that are both eco-conscious and
@@ -82,11 +84,16 @@ const Hero = () => {
               hubs, every Urban Crest project is a fusion of cutting-edge
               design, environmental mindfulness, and functional elegance.
             </p>
-            <NavLink to="/about" className="text-white text-center">
-              <div className=" bg-gray-600 w-fit p-3 min-w-[200px] justify-center items-center flex rounded-4xl hover:bg-gray-700">
-                Learn More
-              </div>
-            </NavLink>
+            <div className="flex justify-center sm:justify-start">
+              <NavLink
+                to="/about"
+                className="text-white text-center self-center"
+              >
+                <div className=" bg-gray-600 w-fit p-3 min-w-[200px] justify-center items-center flex rounded-4xl hover:bg-gray-700">
+                  Learn More
+                </div>
+              </NavLink>
+            </div>
           </div>
         </div>
       </section>
@@ -95,7 +102,7 @@ const Hero = () => {
       <section className="flex flex-col my-10 gap-5 justify-center items-center">
         <h2 className="text-center text-3xl">Projects</h2>
         <div className="flex justify-center items-center">
-          <div className="relative w-1/3 rounded overflow-hidden">
+          <div className="relative w-2/3 sm:w-1/3 rounded overflow-hidden">
             <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
             <img src={Herobg} alt="House Type" className="object-cover" />
             <div className="flex absolute justify-center items-center inset-0 z-20">
