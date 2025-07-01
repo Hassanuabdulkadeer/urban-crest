@@ -9,8 +9,11 @@ import emailjs from "emailjs-com";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 
 import Logo from "./assets/images/logo.png";
-import Herobg from "./assets/images/hero-bg.jpg";
+import Herobg from "./assets/images/c.JPG";
 import AboutImg from "./assets/images/about-c.png";
+import comingsoon from "./assets/images/hero-bg.jpg";
+import project from "./assets/images/a.JPG";
+import project2 from "./assets/images/b.JPG";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -101,7 +104,7 @@ const Hero = () => {
   return (
     <div>
       <section
-        className="h-[70vh] bg-cover bg-center text-white flex items-center justify-center text-center relative"
+        className="h-[90vh] bg-cover bg-center text-white flex items-center justify-center text-center relative"
         style={{ backgroundImage: `url(${Herobg})` }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -157,7 +160,7 @@ const Hero = () => {
         <div className="flex justify-center items-center">
           <div className="relative w-2/3 sm:w-1/3 rounded overflow-hidden">
             <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
-            <img src={Herobg} alt="House Type" className="object-cover" />
+            <img src={comingsoon} alt="House Type" className="object-cover" />
             <div className="flex absolute justify-center items-center inset-0 z-20">
               <h3 className="text-center text-white font-semibold">
                 Coming Soon...
@@ -284,15 +287,24 @@ const Projects = () => (
         purpose, and long-term prosperity.
       </p>
     </div>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-      {[...Array(8)].map((_, i) => (
-        <img
-          key={i}
-          src={Herobg}
-          alt={`Project ${i + 1}`}
-          className="w-full h-40 object-cover rounded"
-        />
-      ))}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-12">
+      {/* {[...Array(3)].map((_, i) => ( */}
+      <img
+        src={project}
+        alt={`Project 1`}
+        className="w-full h-70 object-cover rounded"
+      />
+      <img
+        src={project2}
+        alt={`Project 2`}
+        className="w-full h-70 object-cover rounded"
+      />
+      <img
+        src={Herobg}
+        alt={`Project 3`}
+        className="w-full h-70 object-cover rounded"
+      />
+      {/* ))} */}
     </div>
   </section>
 );
@@ -404,7 +416,7 @@ const Footer = () => (
         <a href="mailto:urbancrest.ngltd@gmail.com">
           Email: urbancrest.ngltd@gmail.com
         </a>
-        <p>Phone number: +123 456 7890</p>
+        <p>Phone number: +2349135001103</p>
         <p>Address: 123 Real Estate Avenue, City</p>
       </div>
       <div className="flex flex-col items-end">
