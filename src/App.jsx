@@ -6,39 +6,90 @@ import {
   NavLink,
 } from "react-router-dom";
 import emailjs from "emailjs-com";
+import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 
 import Logo from "./assets/images/logo.png";
 import Herobg from "./assets/images/hero-bg.jpg";
 import AboutImg from "./assets/images/about-c.png";
 
-const Header = () => (
-  <header className="flex justify-between items-center px-2 sm:px-8 py-4 bg-gray-100 border-b border-gray-300">
-    <div className="flex items-center">
-      <img src={Logo} alt="Urban Crest Logo" className="h-8  sm:h-10 mr-3" />
-      <h1 className="text-md sm:text-xl font-light text-gray-700">
-        URBAN CREST
-      </h1>
-    </div>
-    <nav>
-      <ul className="flex space-x-3 sm:space-x-6">
-        {["/", "/about", "/projects", "/contact"].map((path, idx) => (
-          <li key={idx}>
-            <NavLink
-              to={path}
-              className={({ isActive }) =>
-                isActive
-                  ? "font-medium text-gray-900 border-b-2 border-gray-700 pb-1"
-                  : "font-light text-gray-700"
-              }
-            >
-              {["Home", "About Us", "Projects", "Contact Us"][idx]}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  </header>
-);
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const navItems = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About Us" },
+    { path: "/projects", label: "Projects" },
+    { path: "/contact", label: "Contact Us" },
+  ];
+
+  return (
+    <header className="flex justify-between items-center px-2 sm:px-8 py-4 bg-gray-100 border-b border-gray-300 relative">
+      <div className="flex items-center">
+        <img src={Logo} alt="Urban Crest Logo" className="h-8 sm:h-10 mr-3" />
+        <h1 className="text-md sm:text-xl font-light text-gray-700">
+          URBAN CREST
+        </h1>
+      </div>
+
+      {/* Desktop Navigation */}
+      <nav className="hidden sm:block">
+        <ul className="flex space-x-3 sm:space-x-6">
+          {navItems.map(({ path, label }, idx) => (
+            <li key={idx}>
+              <NavLink
+                to={path}
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-medium text-gray-900 border-b-2 border-gray-700 pb-1"
+                    : "font-light text-gray-700 text-sm"
+                }
+              >
+                {label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Hamburger Icon for Mobile */}
+      <div className="sm:hidden">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          {isOpen ? (
+            <HiOutlineX className="h-6 w-6 text-gray-700" />
+          ) : (
+            <HiOutlineMenu className="h-6 w-6 text-gray-700" />
+          )}
+        </button>
+      </div>
+
+      {/* Mobile Navigation Menu */}
+      {isOpen && (
+        <nav className="absolute top-full left-0 w-full bg-gray-100 border-t border-gray-300 sm:hidden z-10">
+          <ul className="flex flex-col space-y-2 py-4 px-4">
+            {navItems.map(({ path, label }, idx) => (
+              <li key={idx}>
+                <NavLink
+                  to={path}
+                  onClick={() => setIsOpen(false)} // Close menu on click
+                  className={({ isActive }) =>
+                    isActive
+                      ? "block font-medium text-gray-900 border-l-4 border-gray-700 pl-2"
+                      : "block font-light text-gray-700 text-sm pl-2"
+                  }
+                >
+                  {label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+    </header>
+  );
+};
 
 const Hero = () => {
   useEffect(() => {
