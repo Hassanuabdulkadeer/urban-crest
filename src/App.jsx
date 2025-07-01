@@ -416,7 +416,7 @@ const Footer = () => (
         <a href="mailto:urbancrest.ngltd@gmail.com">
           Email: urbancrest.ngltd@gmail.com
         </a>
-        <p>Phone number: +2349135001103</p>
+        <p>Phone number: (+234)9135001103</p>
         <p>Address: 123 Real Estate Avenue, City</p>
       </div>
       <div className="flex flex-col items-end">
