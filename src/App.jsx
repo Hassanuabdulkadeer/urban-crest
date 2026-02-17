@@ -112,9 +112,7 @@ const Hero = () => {
           <h2 className="text-4xl md:text-5xl mb-4">
             Welcome to Urban Crest Realty
           </h2>
-          <p className="text-lg">
-            Where smart living, design, and style are the priority
-          </p>
+          <p className="text-lg">REAL ESTATE | TECHNOLOGY | INVESTMENT</p>
         </div>
       </section>
       {/* <!-- About Us Section --> */}
@@ -126,6 +124,19 @@ const Hero = () => {
           </div>
           <div classname="flex justify-center  flex-col gap-10 p-10">
             <p className="mb-4 text-justify">
+              Urban Crest Realty Limited is a forward-thinking real estate
+              development and investment company. dedicated to redefining the
+              future of urban living in Nigeria. We specialize in the delivery
+              of smart, eco-friendly, and high-quality residential and
+              commercial properties that cater to the lifestyle aspirations of
+              our clients.
+            </p>
+            <p className="mb-4 text-justify">
+              Our ambition is not only to bridge the housing deficit but also to
+              introduce a new standard of intelligent, sustainable, and
+              inclusive real estate solutions across the country
+            </p>
+            {/* <p className="mb-4 text-justify">
               At Urban Crest Realty Limited, we are reimagining what it means to
               live, work, and thrive in urban Nigeria. As a visionary real
               estate development and investment company, our mission is to
@@ -139,7 +150,7 @@ const Hero = () => {
               technologically integrated. From residential estates to commercial
               hubs, every Urban Crest project is a fusion of cutting-edge
               design, environmental mindfulness, and functional elegance.
-            </p>
+            </p> */}
             <div className="flex justify-center sm:justify-start">
               <NavLink
                 to="/about"
